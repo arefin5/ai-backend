@@ -11,7 +11,7 @@ const multer = require('multer');
 var Fingerprint = require("express-fingerprint");
 // const GridFsStorage=require("multer-grids-storage")
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://arefintalukder5:Arefin@cluster0.yrhgh55.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://arefintalukder5:SVDosbFQtNNsTd4J@cluster0.nlbvlxa.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

@@ -17,52 +17,15 @@ const userSchema = new Schema(
       min: 6,
       max: 64,
     },
-    phone: {
+    country: {
       type: String,
-      required: true,
       unique: true,
+    },
 
-    }, father: {
-      type: String,
-    },
-    mother: {
-      type: String,
-    },
-    paddress: {
-      type: String,
-    },
-    parent: {
-      type: String,
-    },
-    education: {
-      type: String,
-    },
-    id: {
-      type: String,
-    },
-    image: {
-    url: String,
-    public_id: String,
-  },
-  branch:{
-    type: String,
-    default: "A",
-    
-  },
-  
-    imagePublicId: {
-      type: String,
-    },
-    classrool:{
-      type: Number,
-      unique: true,
-    },
-   
     role: {
       type: String,
       default: "gust",
     },
-    userDetails: [{ type: Schema.Types.ObjectId, ref: 'StudentDetails' }],
   },
   { timestamps: true }
 );

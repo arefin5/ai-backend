@@ -11,8 +11,10 @@ cloudinary.config({
   api_secret: "lQqwTTsKLLgm0F3_yasknj-jefg",
 });
 exports.register = async (req, res) => {
+  console.log("test")
+
   //  console.log("REGISTER ENDPOINT => ", req.body);
-  const { name, password, phone } = req.body;
+  const { name, password, email,country } = req.body;
   // validation
   if (!name) {
     return res.json({
@@ -25,12 +27,12 @@ exports.register = async (req, res) => {
     });
   }
 
-  const exist = await User.findOne({ phone });
-  if (exist) {
-    return res.json({
-      error: "phone is taken",
-    });
-  }
+  // const exist = await User.findOne({ email });
+  // if (exist) {
+  //   return res.json({
+  //     error: "Email is taken",
+  //   });
+  // }
   // id
   const randomInteger = Math.floor(Math.random() * 10);
   // console.log(randomInteger);
@@ -40,7 +42,8 @@ exports.register = async (req, res) => {
   const user = new User({
     name,
     password: hashedPassword,
-    phone: phone,
+    email: email,
+    country
   });
   try {
     await user.save();
