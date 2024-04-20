@@ -11,9 +11,9 @@ cloudinary.config({
   api_secret: "lQqwTTsKLLgm0F3_yasknj-jefg",
 });
 exports.register = async (req, res) => {
-  console.log("test")
+  // console.log("test");
 
-  //  console.log("REGISTER ENDPOINT => ", req.body);
+   console.log("REGISTER ENDPOINT => ", req.body);
   const { name, password, email,country } = req.body;
   // validation
   if (!name) {

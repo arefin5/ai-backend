@@ -10,6 +10,8 @@ const userSchema = new Schema(
     email: {
       type: String,
       trim: true,
+      unique: true,
+
     },
     password: {
       type: String,
@@ -19,7 +21,6 @@ const userSchema = new Schema(
     },
     country: {
       type: String,
-      unique: true,
     },
 
     role: {
