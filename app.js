@@ -51,7 +51,7 @@ app.get("/fingerprint", (req, res) => {
 app.use(cors(corsOptions));
 
 app.get('/',async(req,res)=>{
-  // console.log("every thing ok");
+   console.log("every thing ok");
   res.json({
     "serverName":"study app",
   "deveolper Name":"Arefin Talukder",
