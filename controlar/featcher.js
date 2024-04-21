@@ -55,7 +55,7 @@ exports.getfeatcherTop = async (req, res) => {
 exports.getfeatcherCard = async (req, res) => {
     try {
         // Find all blogs with status 'draft'
-        const workcard = await Workcard.find()
+        const workcard = await FeatcherCard.find()
         res.status(200).json({ workcard });
     } catch (error) {
         console.error('Error getting  work:', error);
@@ -81,7 +81,7 @@ exports.upDatefeatcherTop = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-exports.upDatefeatcherCard = async (req, res) => {
+ exports.upDatefeatcherCard = async (req, res) => {
     const userId = req.params.id;
     try {
         const work = await FeatcherCard.findById(userId); // Fix: Remove the curly braces around userId

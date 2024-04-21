@@ -76,6 +76,7 @@ app.use('/api',require("./route/topRoute"));
 app.use("/api/",require("./route/workRoute"));
 app.use("/api/",require("./route/featcherRoute"));
 app.use("/api/",require("./route/productivity"));
+app.use("/api/",require("./route/reveiwRoute"));
 
 const imageSchema = new mongoose.Schema({
   url: String,
