@@ -1,59 +1,58 @@
 
 
 
-const Work = require('../models/work');
-const Workcard = require("../models/workcard")
+const Featcher = require('../models/featcher');
+const FeatcherCard = require("../models/featcherCard")
 
-exports.CreateWorkTop = async (req, res) => {
-    const { title, subtitle, subtitle1 } = req.body;
+exports.CreatefeatcherTop = async (req, res) => {
+    const { title, subtitle } = req.body;
 
     try {
 
-        const work = new Work({
+        const featcher = new Featcher({
             title,
             subtitle,
-
-            subtitle1
         });
-        await work.save();
+        await featcher.save();
 
-        console.log('Work page Top added successfully');
-        return res.status(201).json({ message: 'Work added successfully' });
+        console.log('featcher page Top added successfully');
+        return res.status(201).json({ message: 'featcher added successfully' });
     } catch (error) {
         console.error('Error adding Work Top:', error);
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-exports.CreateWorkCard = async (req, res) => {
-    const { title, subtitle, subtitle1, subtitle2, image } = req.body;
+exports.CreatefeatcherCard= async (req, res) => {
+    const { title, subtitle, subtitle1, content, content2,content3,content4 } = req.body;
     try {
-        const workcard = new Workcard({
+        const featcherCard = new FeatcherCard({
             title,
-            subtitle,
-            image,
-            subtitle1,
-            subtitle2
+             subtitle,
+              subtitle1,
+               content,
+                content2,
+                content3,
+                content4 
+            
         });
-        await workcard.save();
-        console.log('Work Card page Top added successfully');
-        return res.status(201).json({ message: 'Work Card added successfully' });
+        await featcherCard.save();
+        console.log('Featcher Card page Top added successfully');
+        return res.status(201).json({ message: 'Feacther Card added successfully' });
     } catch (error) {
-        console.error('Error adding Work Top:', error);
+        console.error('Error adding featcher Card:', error);
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
-exports.getWorkTop = async (req, res) => {
+exports.getfeatcherTop = async (req, res) => {
     try {
-        // Find all blogs with status 'draft'
-        const work = await Work.find()
-        res.status(200).json({ work });
+        const featcher = await Featcher.find()
+        res.status(200).json({featcher});
     } catch (error) {
         console.error('Error getting  work:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-exports.getWorkCard = async (req, res) => {
+exports.getfeatcherCard = async (req, res) => {
     try {
         // Find all blogs with status 'draft'
         const workcard = await Workcard.find()
@@ -63,10 +62,10 @@ exports.getWorkCard = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-exports.upDateWorkTop = async (req, res) => {
+exports.upDatefeatcherTop = async (req, res) => {
     const userId = req.params.id;
     try {
-        const work = await Work.findById(userId); // Fix: Remove the curly braces around userId
+        const work = await Featcher.findById(userId); // Fix: Remove the curly braces around userId
         if (!work) {
             return res.status(404).json({ error: 'Top not found' });
         }
@@ -74,20 +73,18 @@ exports.upDateWorkTop = async (req, res) => {
         //   update Top:
         work.title = req.body.title
         work.subtitle = req.body.subtitle
-        work.subtitle2 = req.body.subtitle2
-
         await work.save();
         // Send a response indicating success
-        res.json({ message: 'Top updated successfully', Top });
+        res.json({ message: 'Top updated successfully', work});
     } catch (error) {
         console.error('Error updating profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-exports.upDateWorkCard = async (req, res) => {
+exports.upDatefeatcherCard = async (req, res) => {
     const userId = req.params.id;
     try {
-        const work = await Workcard.findById(userId); // Fix: Remove the curly braces around userId
+        const work = await FeatcherCard.findById(userId); // Fix: Remove the curly braces around userId
         if (!work) {
             return res.status(404).json({ error: 'Top not found' });
         }
@@ -99,7 +96,7 @@ exports.upDateWorkCard = async (req, res) => {
         work.image = req.body.image
         await work.save();
         // Send a response indicating success
-        res.json({ message: 'Top updated successfully', Top });
+        res.json({ message: 'Top updated successfully', work });
     } catch (error) {
         console.error('Error updating profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
