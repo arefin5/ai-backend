@@ -73,7 +73,10 @@ app.use('/api',require("./route/data.js"));
 app.use("/api",require("./route/questionRoute.js"))
 app.use('/api',require("./route/userRoute"));
 app.use('/api',require("./route/topRoute"));
-app.use("/api/",require("./route/workRoute"))
+app.use("/api/",require("./route/workRoute"));
+app.use("/api/",require("./route/featcherRoute"));
+app.use("/api/",require("./route/productivity"));
+
 const imageSchema = new mongoose.Schema({
   url: String,
   public_id: String,

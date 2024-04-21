@@ -18,14 +18,14 @@ const {
 // router.put('/publised-single-blog/:id', requireAuth, checkAdmin, singleBlogconvert);
 // 
 // top
-router.post("/create-featcher-top",  CreateWorkTop);
-router.post("/create-featcher-card",  CreateWorkCard);
+router.post("/create-featcher-top",  CreatefeatcherTop);
+router.post("/create-featcher-card",  CreatefeatcherCard);
 
-router.get("/get-featcher-top",getWorkTop);
-router.get("/get-featcher-card",getWorkCard);
+router.get("/get-featcher-top",getfeatcherTop);
+router.get("/get-featcher-card",getfeatcherCard);
 
-router.put('/update-featcher-top/:id',upDateWorkTop);
-router.put('/update-featcher-card/:id',upDateWorkCard);
+router.put('/update-featcher-top/:id',upDatefeatcherTop);
+router.put('/update-featcher-card/:id',upDatefeatcherCard);
 
 // end-Top
 // public route :
