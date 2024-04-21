@@ -6,9 +6,7 @@ const FeatcherCard = require("../models/featcherCard")
 
 exports.CreatefeatcherTop = async (req, res) => {
     const { title, subtitle } = req.body;
-
     try {
-
         const featcher = new Featcher({
             title,
             subtitle,

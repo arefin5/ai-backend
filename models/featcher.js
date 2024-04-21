@@ -9,9 +9,6 @@ const RpageData = new mongoose.Schema({
     }, subtitle1: {
         type: String
     },
-    timeSchedule: {
-        type: String
-    }
 });
 
 const Featcher = mongoose.model('Featcher', RpageData);
