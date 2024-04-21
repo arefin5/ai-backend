@@ -21,29 +21,41 @@ const TopSchema = new mongoose.Schema({
     }, title8: {
         type: String,
     },
-    sltitle:{
-        type:String
+    sltitle: {
+        type: String
     },
-    subtitle1:{
-       type:String
+    subtitle1: {
+        type: String
     },
-    subtitle2:{
-        type:String
-     },
-     cardtitle:{
-        type:String
-     },
-     reveiwtitle:{
-        type:String
-     },
+    subtitle2: {
+        type: String
+    },
+    cardtitle: {
+        type: String
+    },
+    reveiwtitle: {
+        type: String
+    },
     image: {
         url: String,
         public_id: String,
-    },firstButton:{
-        type:String
+    }, firstButton: {
+        type: String
     },
-    secendButton:{
-        type:String
+    secendButton: {
+        type: String
+    },
+    image2: {
+        url: String,
+        public_id: String,
+    },
+    image3: {
+        url: String,
+        public_id: String,
+    },
+    image1: {
+        url: String,
+        public_id: String,
     }
 
 
