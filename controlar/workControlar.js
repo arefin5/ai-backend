@@ -6,18 +6,13 @@ const Workcard = require("../models/workcard")
 
 exports.CreateWorkTop = async (req, res) => {
     const { title, subtitle, subtitle1 } = req.body;
-
     try {
-
         const work = new Work({
             title,
             subtitle,
-
             subtitle1
         });
         await work.save();
-
-        console.log('Work page Top added successfully');
         return res.status(201).json({ message: 'Work added successfully' });
     } catch (error) {
         console.error('Error adding Work Top:', error);
@@ -70,15 +65,14 @@ exports.upDateWorkTop = async (req, res) => {
         if (!work) {
             return res.status(404).json({ error: 'Top not found' });
         }
-        console.log("match work top")
         //   update Top:
         work.title = req.body.title
         work.subtitle = req.body.subtitle
-        work.subtitle2 = req.body.subtitle2
+        work.subtitle1 = req.body.subtitle1
 
         await work.save();
         // Send a response indicating success
-        res.json({ message: 'Top updated successfully', Top });
+        res.json({ message: 'Top updated successfully', work });
     } catch (error) {
         console.error('Error updating profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -91,7 +85,6 @@ exports.upDateWorkCard = async (req, res) => {
         if (!work) {
             return res.status(404).json({ error: 'Top not found' });
         }
-        console.log("match work top")
         //   update Top:
         work.title = req.body.title
         work.subtitle = req.body.subtitle
@@ -99,7 +92,7 @@ exports.upDateWorkCard = async (req, res) => {
         work.image = req.body.image
         await work.save();
         // Send a response indicating success
-        res.json({ message: 'Top updated successfully', Top });
+        res.json({ message: 'Top updated successfully', work });
     } catch (error) {
         console.error('Error updating profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
