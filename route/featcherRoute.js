@@ -12,7 +12,7 @@ const {
     getfeatcherCard,
     upDatefeatcherTop,
     upDatefeatcherCard
-}  = require("../controlar/featcher");
+}  = require("../controlar/featcherControlar");
 
 // 
 // router.put('/publised-single-blog/:id', requireAuth, checkAdmin, singleBlogconvert);

@@ -1,7 +1,7 @@
 
 
 
-const Featcher = require('../models/featcher');
+const Featcher = require('../models/featchermodel');
 const FeatcherCard = require("../models/featcherCard")
 
 exports.CreatefeatcherTop = async (req, res) => {
@@ -12,8 +12,7 @@ exports.CreatefeatcherTop = async (req, res) => {
             subtitle,
         });
         await featcher.save();
-
-        console.log('featcher page Top added successfully');
+        // console.log('featcher page Top added successfully');
         return res.status(201).json({ message: 'featcher added successfully' });
     } catch (error) {
         console.error('Error adding Work Top:', error);
