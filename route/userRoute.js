@@ -22,6 +22,8 @@ router.post(
 router.post("/register", register);
 router.post("/login", login);
 router.get('/profile', requireAuth, currentUser);
+router.get('/current-admin', requireAuth,checkAdmin, currentUser);
+
 router.post("/create-student/:id", requireAuth, checkAdmin, createStudentdetails);
 router.get("/all-student", requireAuth, checkAdmin, getAllStudents);
 router.get("/all-guset", requireAuth, checkAdmin, allFree);
@@ -31,6 +33,7 @@ router.get("/all-students/branchb", requireAuth, checkAdmin, getBranchB);
 router.get("/all-seminer-booking",BookSeminerGet)
 router.put("/profile-update/:id", upDateProfile);
 router.put("/change-role/:id", requireAuth, checkAdmin, userRole);
+
 module.exports = router;
 
 

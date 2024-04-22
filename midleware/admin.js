@@ -8,7 +8,6 @@ const checkAdmin = (req, res, next) => {
     if (user.role !== "admin") {
       return res.status(403).send("Permission denied: Admin access required");
     }
-    // User has the "admin" role, allow the request to proceed
     next();
   } catch (err) {
     console.error(err);
