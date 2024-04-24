@@ -1,8 +1,9 @@
 const Productivity = require('../models/productivity');
 
  exports.CreateProductivity = async (req, res) => {
-    console.log("Create Top ENDPOINT => ", req.body);
-    const { title1,
+    // console.log("Create Top ENDPOINT => ", req.body);
+    const { 
+        title1,
         title2,
         title3,
         title4,
@@ -47,7 +48,7 @@ const Productivity = require('../models/productivity');
 
 exports.upDateProductivity = async (req, res) => {
     const userId = req.params.id;
-    console.log("id")
+    // console.log("id")
     try {
         const top = await Productivity.findById(userId); // Fix: Remove the curly braces around userId
         if (!top) {

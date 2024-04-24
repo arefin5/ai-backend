@@ -115,11 +115,8 @@ exports.login = async (req, res) => {
 
 
 exports.currentUser = async (req, res) => {
-  console.log("test  ")
   try {
     const user = await User.findById(req.user._id);
-    // res.json(user);
-    console.log("admin check to user ",user)
     res.json({ ok: true });
   } catch (err) {
     console.log(err);
@@ -354,6 +351,7 @@ exports.uploadImage = async (req, res) => {
       url: result.secure_url,
       public_id: result.public_id,
     });
+    // console.log("success ")
   } catch (err) {
     console.log(err);
   }

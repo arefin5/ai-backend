@@ -1,6 +1,6 @@
 // Middleware to check the authorization token
 const checkAdmin = (req, res, next) => {
-  console.log("user", req.user);
+  // console.log("user", req.user);
 
   try {
     const user = req.user;

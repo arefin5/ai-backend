@@ -85,9 +85,12 @@ exports.upDateWorkCard = async (req, res) => {
         if (!work) {
             return res.status(404).json({ error: 'Top not found' });
         }
+    console.log("tesr")
+
         //   update Top:
         work.title = req.body.title
         work.subtitle = req.body.subtitle
+        work.subtitle1=req.body.subtitle1
         work.subtitle2 = req.body.subtitle2
         work.image = req.body.image
         await work.save();

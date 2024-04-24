@@ -1,11 +1,11 @@
 
 
 
-const  Reveiw= require('../models/reveiwModel');
+const Reveiw = require('../models/reveiwModel');
 const ReveiwCard = require("../models/reveiwCardmodel")
 
 exports.CreatereveiwTop = async (req, res) => {
-    const { title, subtitle ,subtitle1} = req.body;
+    const { title, subtitle, subtitle1 } = req.body;
 
     try {
 
@@ -22,17 +22,17 @@ exports.CreatereveiwTop = async (req, res) => {
         console.error('Error adding Work Top:', error);
         return res.status(500).json({ error: 'Internal Server Error' });
     }
- };
-exports.CreatereveiwCard= async (req, res) => {
-    const { title, subtitle,name,image,rating,} = req.body;
+};
+exports.CreatereveiwCard = async (req, res) => {
+    const { title, subtitle, name, image, rating, } = req.body;
     try {
-        const  reveiwcard= new ReveiwCard({
+        const reveiwcard = new ReveiwCard({
             title,
-             subtitle,
-              name,
-               image,
-                rating,
-            
+            subtitle,
+            name,
+            image,
+            reting,
+
         });
         await reveiwcard.save();
         return res.status(201).json({ message: 'Reveiw Card added successfully' });
@@ -44,7 +44,7 @@ exports.CreatereveiwCard= async (req, res) => {
 exports.getreveiwTop = async (req, res) => {
     try {
         const reveiw = await Reveiw.find()
-        res.status(200).json({reveiw});
+        res.status(200).json({ reveiw });
     } catch (error) {
         console.error('Error getting  work:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -54,7 +54,7 @@ exports.getreveiwCard = async (req, res) => {
     try {
         // Find all blogs with status 'draft'
         const reveiwcard = await ReveiwCard.find()
-        res.status(200).json({reveiwcard});
+        res.status(200).json({ reveiwcard });
     } catch (error) {
         console.error('Error getting  work:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -70,10 +70,10 @@ exports.upDatereveiwTop = async (req, res) => {
         //   update Top:
         reveiw.title = req.body.title
         reveiw.subtitle = req.body.subtitle
-        reveiw.subtitle1=req.body.subtitle1
+        reveiw.subtitle1 = req.body.subtitle1
         await reveiw.save();
         // Send a response indicating success
-        res.json({ message: 'Reveiw  Top successfully', reveiw});
+        res.json({ message: 'Reveiw  Top successfully', reveiw });
     } catch (error) {
         console.error('Error updating profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -82,16 +82,17 @@ exports.upDatereveiwTop = async (req, res) => {
 exports.upDatereveiwCard = async (req, res) => {
     const reveiwID = req.params.id;
     try {
-        const reveiwcard = await FeatcherCard.findById(reveiwID); // Fix: Remove the curly braces around userId
+        const reveiwcard = await ReveiwCard.findById(reveiwID); // Fix: Remove the curly braces around userId
         if (!reveiwcard) {
             return res.status(404).json({ error: 'Top not found' });
         }
-        console.log("match work top")
+        // console.log("match work top")
         //   update Top:
         reveiwcard.title = req.body.title
         reveiwcard.subtitle = req.body.subtitle
         reveiwcard.subtitle2 = req.body.subtitle2
         reveiwcard.image = req.body.image
+        reveiwcard.reting=req.body.reting
         await reveiwcard.save();
         // Send a response indicating success
         res.json({ message: 'Reveiw Card updated successfully', reveiwcard });

@@ -13,7 +13,8 @@ exports.CreateTop = async (req, res) => {
         subtitle1,
         subtitle2,
         cardtitle,
-        reveiwtitle, image,
+        reveiwtitle,
+         image,
         sltitle,
         firstButton,
         secendButton } = req.body;
