@@ -33,9 +33,9 @@ const RpageData = new mongoose.Schema({
 
     },
     image: {
-        type: String,
-
-    },
+    url: String,
+    public_id: String,
+  },
     timeSchedule: {
         type: String
     }
