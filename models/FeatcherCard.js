@@ -32,7 +32,7 @@ const RpageData = new mongoose.Schema({
         type: String
 
     },
-    videos: {
+    image: {
         type: String,
 
     },
